@@ -5,7 +5,7 @@ import { ProductWishListComponent } from './product-wish-list/product-wish-list.
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
-  { path: '', component: ProductListComponent },
+  { path: '', component: ProductListComponent,  },
   { path: 'wishlist', component: ProductWishListComponent },
   { path: 'detail/:id', component: ProductDetailsComponent },
 ];

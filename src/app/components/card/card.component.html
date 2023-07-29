@@ -4,7 +4,7 @@
   <a href="#">
     <img
       class="p-8 rounded-t-lg"
-      src="https://http2.mlstatic.com/D_NQ_NP_656548-MLA46114829749_052021-O.webp"
+      [src]="product.image"
       alt="product image"
       style="height: 100%"
     />
@@ -14,22 +14,37 @@
       <h5
         class="text-8xlxl font-semibold tracking-tight text-gray-900 dark:text-white"
       >
-        Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+        {{ product.name }}
       </h5>
     </a>
     <div class="flex items-center mt-2.5 mb-5">
       Disponibles
       <span
         class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3"
-        >5.0</span
+        >{{ product.stock }}</span
       >
     </div>
     <div class="flex items-center justify-between">
-      <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-      <a
-        href="#"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >Me gusta</a
+      <span class="text-3xl font-bold text-gray-900 dark:text-white"
+        >${{ product.price }}</span
+      >
+
+      <div *ngIf="!product.isLike; else other_content">
+        <button
+        (click)="addToMyList(product.id)"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Me gusta
+        </button>
+      </div>
+
+      <ng-template #other_content
+        ><button
+        (click)="delFromMyList(product.id)"
+          class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+        >
+          Ya no me gusta
+        </button></ng-template
       >
     </div>
   </div>
