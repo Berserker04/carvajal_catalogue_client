@@ -1,11 +1,5 @@
-<div class="w-full h-full grid grid-cols-4 place-items-center gap-4 py-10 px-20">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+<div
+  class="w-full h-full grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-4 py-10 px-20"
+>
+  <app-card *ngFor="let product of productList" [product]="product"></app-card>
 </div>
